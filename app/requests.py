@@ -27,8 +27,8 @@ def get_news(category):
         new_results = None
 
         if get_news_response['results']:
-            movie_news_list = get_news_response['results']
-            new_results = process_results(movie_news_list)
+            news_list = get_news_response['results']
+            new_results = process_results(news_list)
 
 
     return new_results
@@ -44,15 +44,18 @@ def process_results(new_list):
         news_results: A list of news objects
     '''
     new_results = []
+  
     for new_item in new_list:
         id = new_item.get('id')
-        title = new_item.get('original_title')
-        overview = new_item.get('overview')
+        name = new_item.get('name')
+        description = new_item.get('description')
+        url = new_item.get('url')
+        country = new_item.get('country')
         poster = new_item.get('poster_path')
-        time = new_item.get('time')
-
+               
         if poster:
-            new_object = Movie(id,title,overview,poster,time)
-            new_results.append(new_object)
+             new_object = News(id,name,description,url,country)
+             new_results.append(new_object)
+           
 
     return new_results
