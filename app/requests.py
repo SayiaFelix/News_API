@@ -1,17 +1,16 @@
 import urllib.request,json
 from .news_article import Movie
-from .news_source import Movie
-
+from .news_source import News
 
 # Getting api key
-api_key = None
+apiKey= None
 
 # Getting the news base url
 base_url = None
 
 def configure_request(app):
-    global api_key,base_url
-    api_key = app.config['NEWS_API_KEY']
+    global apiKey,base_url
+    apiKey = app.config['NEWS_API_KEY']
     base_url = app.config['NEWS_API_BASE_URL']
 
 
@@ -19,7 +18,7 @@ def get_news(category):
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = base_url.format(category,api_key)
+    get_news_url = base_url.format(category,apiKey)
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
@@ -36,13 +35,13 @@ def get_news(category):
 
 def process_results(new_list):
     '''
-    Function  that processes the movie result and transform them to a list of Objects
+    Function  that processes the new result and transform them to a list of Objects
 
     Args:
-        movie_list: A list of dictionaries that contain movie details
+        news_list: A list of dictionaries that contain new details
 
     Returns :
-        movie_results: A list of movie objects
+        news_results: A list of news objects
     '''
     new_results = []
     for new_item in new_list:
@@ -50,11 +49,10 @@ def process_results(new_list):
         title = new_item.get('original_title')
         overview = new_item.get('overview')
         poster = new_item.get('poster_path')
-        vote_average = new_item.get('vote_average')
-        vote_count = new_item.get('vote_count')
+        time = new_item.get('time')
 
         if poster:
-            new_object = Movie(id,title,overview,poster,vote_average,vote_count)
+            new_object = Movie(id,title,overview,poster,time)
             new_results.append(new_object)
 
     return new_results
