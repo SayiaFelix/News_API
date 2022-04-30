@@ -1,8 +1,8 @@
 
 from flask import render_template,request,redirect,url_for
 from . import main
-from ..requests import News, get_news,get_sources,search_news
-from .forms import ReviewForm
+from ..requests import get_news,get_sources
+
 
 # Views
 @main.route('/')

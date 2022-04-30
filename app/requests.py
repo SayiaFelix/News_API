@@ -1,5 +1,4 @@
 
-from turtle import title
 import urllib.request,json
 from .news import News
 from .sources import Sources
