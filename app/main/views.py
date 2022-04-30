@@ -12,11 +12,11 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-       # Getting popular movie
-    source_news = get_news('source')
-    # print(popular_movies) 
+       # Getting news sources
+    source_news = get_news('sources')
+   
     title = 'Home - Welcome to The Best Online News Hub'
-    return render_template('index.html', title = title, source = source_news)
+    return render_template('index.html', title = title, sources = source_news)
 
 
    
