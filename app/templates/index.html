@@ -33,6 +33,14 @@
 </head>
 
 <body>
+    <!-- Popular movie section  -->
+    <h3> Source News</h3>
+    <ul>
+        {% for source_news in source %}
+        <li>{{ source_news.name}}</li>
+        {% endfor %}
+    </ul>
+
 
 </body>
 
