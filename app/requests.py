@@ -1,22 +1,26 @@
 
-from app import app
+from turtle import title
 import urllib.request,json
-
-
-News = news.News
+from .news import News
+from .sources import Sources
 
 # Getting api key
-apiKey = app.config['NEWS_API_KEY']
+apiKey = None
 
 # Getting the news base url
-base_url = app.config["NEWS_API_BASE_URL"]
+base_url = None
 
+def configure_request(app):
+    global apiKey,base_url
+    apiKey = app.config['NEWS_API_KEY']
+    base_url = app.config['NEWS_API_BASE_URL']
 
-def get_news(sources):
+# News
+def get_news():
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = base_url.format(sources,apiKey)
+    get_news_url = base_url.format(apiKey)
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
@@ -24,8 +28,8 @@ def get_news(sources):
 
         new_results = None
 
-        if get_news_response['results']:
-            new_results_list = get_news_response['results']
+        if get_news_response['articles']:
+            new_results_list = get_news_response['articles']
             new_results = process_results(new_results_list)
 
 
@@ -43,17 +47,62 @@ def process_results(new_list):
     '''
     new_results = []
   
-    for new_item in new_list:
-        id = new_item.get('id')
-        name = new_item.get('name')
+    for new_item in new_list: 
+        title= new_item.get('title')
         description = new_item.get('description')
-        url = new_item.get('url')
-        country = new_item.get('country')
-        poster = new_item.get('poster_path')
+        urlToImage = new_item.get('urlToImage')
+        content = new_item.get('content')
+        publishedAt = new_item.get('publishedAt')
                
-        if poster:
-             new_object = News(id,name,description,url,country)
-             new_results.append(new_object)
+        new_object = News(title,description,urlToImage,content,publishedAt)
+        new_results.append(new_object)
+           
+
+    return new_results
+
+#sources
+def get_sources():
+    '''
+    Function that gets the json response to our url request
+    '''
+    get_source_url = base_url.format(apiKey)
+
+    with urllib.request.urlopen(get_source_url) as url:
+        get_source_data = url.read()
+        get_source_response = json.loads(get_source_data)
+
+        source_object = None
+
+        if get_source_response:
+            name = get_source_response.get('name')
+            description = get_source_response.get('description')
+            url = get_source_response.get('url')
+         
+            movie_object = Sources(name,description,url)
+
+    return source_object
+         
+def process_results(new_list):
+    '''
+    Function  that processes the new result and transform them to a list of Objects
+
+    Args:
+        news_list: A list of dictionaries that contain new details
+
+    Returns :
+        news_results: A list of news objects
+    '''
+    new_results = []
+  
+    for new_item in new_list: 
+        title= new_item.get('title')
+        description = new_item.get('description')
+        urlToImage = new_item.get('urlToImage')
+        content = new_item.get('content')
+        publishedAt = new_item.get('publishedAt')
+               
+        new_object = News(title,description,urlToImage,content,publishedAt)
+        new_results.append(new_object)
            
 
     return new_results
