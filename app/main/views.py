@@ -17,13 +17,13 @@ def index():
     technology_sources = get_sources('technology')
     sport_sources = get_sources('sports')
     business_sources = get_sources('business')
-    
-    
+    health_sources = get_sources('health')
+    science_sources = get_sources('science')
 
 
     title = 'Sir Felix News Hub'
     
-    return render_template('index.html', title = title, general = general_sources, entertainment = entertainment_sources, technology = technology_sources, sports = sport_sources, business = business_sources)
+    return render_template('index.html', title = title, general = general_sources, entertainment = entertainment_sources, technology = technology_sources,science = science_sources, health = health_sources, sports = sport_sources, business = business_sources)
 
     
 # @main.route('/Article')
