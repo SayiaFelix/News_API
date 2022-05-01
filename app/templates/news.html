@@ -1,31 +1,21 @@
- {% extends 'base.html'%}
-<!-- {% import 'macros.html' as macro%} -->
-<!-- Styles block -->
+<!-- {% extends 'base.html'%}
+<!-- {% import 'macros.html' as macro%} -
+<!-- Styles block -
 
 {% block styles%} {{ super() }}
 <link rel="stylesheet" href="{{url_for('static',filename='css/news.css')}}"> {% endblock %}
 
+
 <!-- Content block -->
-{% block content %}
+<!-- {% block content %}
+<div class="container">
 
-<h1>Articles</h1>
 
-<ul>
-    {% for article in articles %}
+    <h1>{{source.name}}</h1>
 
-    <div class="row row-cols-1 row-cols-md-1 g-4 d-flex">
+    <p>{{source.description}}</p>
+    <h4>{{source.author}}</h4>
 
-        <div class="col p-3">
-            <div class="card p-3">
-                <img src="{{ article.urlToImage }}" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h3 class="card-title">{{article.title}}</h3>
-                    <p><strong>{{article.description}}</strong></p>
-                    <button class="btn btn-success p-2"><a href="{{article.url}}" target="_blank">Read More</a></button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {%endfor%}
-</ul>
-{% endblock%}
+
+</div>
+{% endblock %} -->-->

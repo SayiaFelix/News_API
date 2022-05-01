@@ -7,6 +7,6 @@ class Source:
         self.name = name
         self.description = description
         self.url = url
-        self.content = category
+        self.category = category
         self.country = country
 

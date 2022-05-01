@@ -26,14 +26,19 @@ def index():
     return render_template('index.html', title = title, general = general_sources, entertainment = entertainment_sources, technology = technology_sources,science = science_sources, health = health_sources, sports = sport_sources, business = business_sources)
 
     
-# @main.route('/Article')
-# def news():
+
+
+# @main.route('/source/<int:id>')
+# def source(id):
 
 #     '''
-#     View movie page function that returns the article details page and its data
+#     View article page function that returns the movie details page and its data
 #     '''
-#     News = get_everything()
-      
-#     return render_template('news.html', Articles = News)
+#     source = get_source(id)
+#     title =  f'{source.name}'
+
+#     return render_template('news.html',title = title, source = source)
+
+
 
 
