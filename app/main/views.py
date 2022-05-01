@@ -1,7 +1,8 @@
 
 from flask import render_template,request,redirect,url_for
 from . import main
-from ..requests import get_everything
+
+from ..requests import get_sources
 
 
 # Views
@@ -11,10 +12,14 @@ def index():
     View root page function that returns the index page and its data
     '''
     # Getting news
-    News = get_everything()
+    # News = get_everything('popularity')
+    business_sources = get_sources('business')
+    
 
     title = 'Sir Felix News Hub'
-    return render_template('index.html', title = title, article = News)
+    
+    return render_template('index.html', title = title, business = business_sources)
+
     # search_movie = request.args.get('movie_query')
 
     # if search_movie:

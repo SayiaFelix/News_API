@@ -1,50 +1,14 @@
  {% extends 'base.html'%} {% import 'macros.html' as macro%}
-<!-- Styles block -->
-
-{% block styles%} {{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"> {% endblock %}
-
 <!-- Content block -->
 {% block content %}
-<div class="form">
-    <div class="container">
-        <h2>Welcome, at NewsHub::</h2>
-        <form>
-            <input type="text" name="movie_query" placeholder="Search for a Movie" class="form-control">
-            <input type="submit" value="Submit" class="btn btn-success btn-lg">
-        </form>
 
-    </div>
-</div>
-
-
-<h1>Trending News</h1>
-
+<!-- Popular movie -->
+<h3>This Week Popular Movies</h3>
 <ul>
-    {% for article in articles %}
-    <div class="row row-cols-1 row-cols-md-1 g-4 d-flex">
-
-        <div class="col p-3">
-            <div class="card p-3">
-                <img src="{{ article.urlToImage }}" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h3 class="card-title">{{article.title}}</h3>
-                    <p><strong>{{article.description}}</strong></p>
-                    <p>{{article.content}}</p>
-                    <p>{{article.publishedAt}}</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    {%endfor%}
+    {{ macro.displayNewList(business)}}
 </ul>
+
 {% endblock%}
-
-
-
-
-
 
 
 
