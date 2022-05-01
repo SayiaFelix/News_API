@@ -1,9 +1,16 @@
  {% extends 'base.html'%} {% import 'macros.html' as macro%}
+
 <!-- Content block -->
 {% block content %}
 
-<!-- Popular movie -->
-<h3>This Week Popular Movies</h3>
+<!-- General News -->
+<h3>General News World Wide</h3>
+<ul>
+    {{ macro.displayNewList(business)}}
+</ul>
+
+<!-- Bussiness News -->
+<h3>Bussiness News</h3>
 <ul>
     {{ macro.displayNewList(business)}}
 </ul>

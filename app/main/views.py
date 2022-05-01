@@ -12,13 +12,13 @@ def index():
     View root page function that returns the index page and its data
     '''
     # Getting news
-    # News = get_everything('popularity')
+    general_sources = get_sources('general')
     business_sources = get_sources('business')
-    
+
 
     title = 'Sir Felix News Hub'
     
-    return render_template('index.html', title = title, business = business_sources)
+    return render_template('index.html', title = title, general = general_sources, business = business_sources)
 
     # search_movie = request.args.get('movie_query')
 
