@@ -1,8 +1,7 @@
 
 from flask import render_template,request,redirect,url_for
 from . import main
-
-from ..requests import  get_sources
+from ..requests import  get_sources,get_headlines,article_source
 
 
 # Views
@@ -19,25 +18,23 @@ def index():
     business_sources = get_sources('business')
     health_sources = get_sources('health')
     science_sources = get_sources('science')
-
+     
+    headline=get_headlines()
 
     title = 'Sir Felix News Hub'
     
-    return render_template('index.html', title = title, general = general_sources, entertainment = entertainment_sources, technology = technology_sources,science = science_sources, health = health_sources, sports = sport_sources, business = business_sources)
+    return render_template('index.html', title = title, general = general_sources, entertainment = entertainment_sources, technology = technology_sources,science = science_sources, health = health_sources, sports = sport_sources, business = business_sources,headlines=headline)
 
     
+@main.route('/article/<id>')
+def article(id):
 
+    '''
+    View article page function that returns the various article details page and its data
+    '''
+    articles = article_source(id)
+    return render_template('news.html',articles= articles, id=id )
 
-# @main.route('/source/<int:id>')
-# def source(id):
-
-#     '''
-#     View article page function that returns the movie details page and its data
-#     '''
-#     source = get_source(id)
-#     title =  f'{source.name}'
-
-#     return render_template('news.html',title = title, source = source)
 
 
 

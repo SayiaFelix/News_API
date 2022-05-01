@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(236, 236, 248);
+}
+
+
+/* #img {
+    width: 80px;
+} */
+
+.headelines {
+    display: flex;
+    margin: 3%;
+}

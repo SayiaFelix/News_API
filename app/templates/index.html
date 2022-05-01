@@ -4,41 +4,73 @@
 {% block styles%} {{ super() }}
 <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"> {% endblock %}
 <!-- Content block -->
-{% block content %}
+{% block content %} .
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <!-- General News -->
+            <h3>News Headline</h3>
+            <ul>
+                {{ macro.displayNewList(general)}}
+            </ul>
 
-<!-- General News -->
-<h3>News Headline World Wide</h3>
-<ul>
-    {{ macro.displayNewList(general)}}
-</ul>
+            <h3>Technology Trendings</h3>
+            <ul>
+                {{ macro.displayNewList(technology)}}
+            </ul>
 
-<h3>Technology Trendings</h3>
-<ul>
-    {{ macro.displayNewList(technology)}}
-</ul>
+            <h3>Science News</h3>
+            <ul>
+                {{ macro.displayNewList(science)}}
+            </ul>
 
-<h3>Science News</h3>
-<ul>
-    {{ macro.displayNewList(science)}}
-</ul>
+            <h3>Entertainment News</h3>
+            <ul>
+                {{ macro.displayNewList(entertainment)}}
+            </ul>
 
-<h3>Entertainment News</h3>
-<ul>
-    {{ macro.displayNewList(entertainment)}}
-</ul>
+            <h3>Health News</h3>
+            <ul>
+                {{ macro.displayNewList(health)}}
+            </ul>
 
-<h3>Health News</h3>
-<ul>
-    {{ macro.displayNewList(health)}}
-</ul>
+            <h3 class="mt-5">Sport News</h3>
+            <ul>
+                {{ macro.displayNewList(sports)}}
+            </ul>
 
-<h3 class="mt-5">Sport News</h3>
-<ul>
-    {{ macro.displayNewList(sports)}}
-</ul>
+            <h3>Bussiness News</h3>
+            <ul>
+                {{ macro.displayNewList(business)}}
+            </ul>
+        </div>
+        <div class="col-6">
+            <h1 align="center"> Top News </h3>
+                <div class="container">
+                    {% for headlines in headlines %}
+                    <div class="row">
+                        <div class="headelines">
+                            <div class="col-5">
+                                <div class="">
+                                    <img class="card" src="{{headlines.urlToImage}}" alt="Card image cap" id="img" width="500px">
+                                </div>
 
-<h3>Bussiness News</h3>
-<ul>
-    {{ macro.displayNewList(business)}}
-</ul>
+                                <div class="content">
+                                    <h5 class="card-title">{{headlines.title}}</h5>
+                                    <p class="card-text">{{headlines.description}}</p>
+                                </div>
+
+                                <!-- <button class="btn btn-success p-2"><a href="{{headlines.url}}" target="_blank">More Details</a></button>
+                    <small class="text-muted">Publish date: {{headlines.publishedAt}}</small> -->
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
 {% endblock%}

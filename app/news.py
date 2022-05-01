@@ -10,3 +10,15 @@ class Source:
         self.category = category
         self.country = country
 
+class TopHeadlines:
+    '''
+    Class that instantiates objects of the headlines categories objects of the news sources
+    '''
+    def __init__(self,author,title,description,url,content,urlToImage,publishedAt):
+        self.author = author
+        self.description = description
+        self.content = content
+        self.url = url
+        self.urlToImage = urlToImage
+        self.title = title
+        self.publishedAt = publishedAt

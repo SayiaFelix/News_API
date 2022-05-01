@@ -1,4 +1,4 @@
-class Everything:
+class Article:
     '''
     New class Defining Everything Oject
     '''
