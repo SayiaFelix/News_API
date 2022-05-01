@@ -2,7 +2,7 @@
 from flask import render_template,request,redirect,url_for
 from . import main
 
-from ..requests import get_sources
+from ..requests import  get_sources
 
 
 # Views
@@ -25,32 +25,15 @@ def index():
     
     return render_template('index.html', title = title, general = general_sources, entertainment = entertainment_sources, technology = technology_sources, sports = sport_sources, business = business_sources)
 
-    # search_movie = request.args.get('movie_query')
-
-    # if search_movie:
-    #     return redirect(url_for('.search',movie_name=search_movie))
-    # else:
-    #     return render_template('index.html', title = title, popular = popular_movies, upcoming = upcoming_movie, now_showing = now_showing_movie )
-
-
-# @main.route('/Sources')
-# def sources():
+    
+# @main.route('/Article')
+# def news():
 
 #     '''
-#     View movie page function that returns the movie details page and its data
+#     View movie page function that returns the article details page and its data
 #     '''
-#     News= get_sources()
+#     News = get_everything()
       
-#     return render_template('news.html', Sources= News)
+#     return render_template('news.html', Articles = News)
 
 
-# # @main.route('/search/<movie_name>')
-# # def search(movie_name):
-# #     '''
-# #     View function to display the search results
-# #     '''
-# #     movie_name_list = movie_name.split(" ")
-# #     movie_name_format = "+".join(movie_name_list)
-# #     searched_movies = search_movie(movie_name_format)
-# #     title = f'search results for {movie_name}'
-# #     return render_template('search.html',movies = searched_movies)

@@ -1,7 +1,7 @@
 
 import urllib.request,json
 from .news import Source
-# from .sources import Sources
+# from .article import Everything
 
 # Getting api key
 apiKey = None
@@ -48,14 +48,12 @@ def process_results_sources(source_list):
     return source_results
 
 
-
-
-# News
-# def get_everything(category):
+# # Articles list
+# def get_everything():
 #     '''
 #     Function that gets the json response to our url request
 #     '''
-#     get_news_url = base_url.format(category,apiKey)
+#     get_news_url = base_url.format(apiKey)
 
 #     with urllib.request.urlopen(get_news_url) as url:
 #         get_news_data = url.read()
@@ -63,8 +61,8 @@ def process_results_sources(source_list):
 
 #         new_results = None
 
-#         if get_news_response['sources']:
-#             new_results_list = get_news_response['sources']
+#         if get_news_response['articles']:
+#             new_results_list = get_news_response['articles']
 #             new_results = process_results(new_results_list)
 
 
@@ -85,65 +83,14 @@ def process_results_sources(source_list):
 #     for new_item in new_list: 
 #         title= new_item.get('title')
 #         description = new_item.get('description')
+#         url= new_item.get('url')
 #         urlToImage = new_item.get('urlToImage')
 #         content = new_item.get('content')
 #         publishedAt = new_item.get('publishedAt')
                
-#         new_object = News(title,description,urlToImage,content,publishedAt)
+#         new_object = Everything(title,description,url,urlToImage,content,publishedAt)
 #         new_results.append(new_object)
            
 
 #     return new_results
 
-
-
-
-
-
-
-#sources
-# def get_sources():
-#     '''
-#     Function that gets the json response to our url request
-#     '''
-#     get_source_url = base_url.format(apiKey)
-
-#     with urllib.request.urlopen(get_source_url) as url:
-#         get_source_data = url.read()
-#         get_source_response = json.loads(get_source_data)
-
-#         source_object = None
-
-#         if get_source_response:
-#             name = get_source_response.get('name')
-#             description = get_source_response.get('description')
-#             url = get_source_response.get('url')
-         
-#             movie_object = Sources(name,description,url)
-
-#     return source_object
-         
-# def process_results(new_list):
-#     '''
-#     Function  that processes the new result and transform them to a list of Objects
-
-#     Args:
-#         news_list: A list of dictionaries that contain new details
-
-#     Returns :
-#         news_results: A list of news objects
-#     '''
-#     new_results = []
-  
-#     for new_item in new_list: 
-#         title= new_item.get('title')
-#         description = new_item.get('description')
-#         urlToImage = new_item.get('urlToImage')
-#         content = new_item.get('content')
-#         publishedAt = new_item.get('publishedAt')
-               
-#         new_object = News(title,description,urlToImage,content,publishedAt)
-#         new_results.append(new_object)
-           
-
-#     return new_results
