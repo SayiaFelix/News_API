@@ -13,12 +13,17 @@ def index():
     '''
     # Getting news
     general_sources = get_sources('general')
+    entertainment_sources = get_sources('entertainment')
+    technology_sources = get_sources('technology')
+    sport_sources = get_sources('sports')
     business_sources = get_sources('business')
+    
+    
 
 
     title = 'Sir Felix News Hub'
     
-    return render_template('index.html', title = title, general = general_sources, business = business_sources)
+    return render_template('index.html', title = title, general = general_sources, entertainment = entertainment_sources, technology = technology_sources, sports = sport_sources, business = business_sources)
 
     # search_movie = request.args.get('movie_query')
 

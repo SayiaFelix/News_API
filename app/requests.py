@@ -40,10 +40,10 @@ def process_results_sources(source_list):
         description = source_item.get('description')
         url = source_item.get('url')
         category = source_item.get('category')
-       
-        # language = source_item.get('language')
+        country = source_item.get('country')
+
         if name:    
-            source_object = Source(name,description,url,category,)
+            source_object = Source(name,description,url,category,country)
             source_results.append(source_object)
     return source_results
 

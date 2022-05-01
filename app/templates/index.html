@@ -4,35 +4,28 @@
 {% block content %}
 
 <!-- General News -->
-<h3>General News World Wide</h3>
+<h3>News Headline World Wide</h3>
 <ul>
-    {{ macro.displayNewList(business)}}
+    {{ macro.displayNewList(general)}}
 </ul>
 
+<h3>Technology Trendings</h3>
+<ul>
+    {{ macro.displayNewList(technology)}}
+</ul>
+
+<h3>Entertainment News</h3>
+<ul>
+    {{ macro.displayNewList(entertainment)}}
+</ul>
+
+<h3 class="mt-5">Sport News</h3>
+<ul>
+    {{ macro.displayNewList(sports)}}
+</ul>
 <!-- Bussiness News -->
 <h3>Bussiness News</h3>
 <ul>
     {{ macro.displayNewList(business)}}
 </ul>
-
 {% endblock%}
-
-
-
-
-<!-- 
-<h3>This Week Popular Movies</h3>
-<ul>
-    {{ macro.displayMovieList(popular)}}
-</ul>
-
-<h3> Upcoming Movies </h3>
-<ul>
-    {{ macro.displayMovieList(upcoming)}}
-</ul>
-
-<h3 class="mt-5">Now Showing</h3>
-<ul>
-    {{ macro.displayMovieList(now_showing)}}
-</ul>
--->
