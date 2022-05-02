@@ -18,7 +18,6 @@ def index():
     business_sources = get_sources('business')
     health_sources = get_sources('health')
     science_sources = get_sources('science')
-     
     headline=get_headlines()
 
     title = 'Sir Felix News Hub'
@@ -33,7 +32,7 @@ def article(id):
     View article page function that returns the various article details page and its data
     '''
     articles = article_source(id)
-    return render_template('news.html',articles= articles, id=id )
+    return render_template('news.html',articles = articles, id=id )
 
 
 

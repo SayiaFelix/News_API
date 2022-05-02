@@ -3,12 +3,34 @@ body {
     width: 100%;
 }
 
+#NEWS {
+    font-size: 45px;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration-color: rgb(3, 3, 3);
+}
 
-/* #img {
-    width: 80px;
-} */
+.news {
+    background-color: rgb(236, 236, 248);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 5px 13px rgba(24, 20, 20, 0.5);
+}
 
-.headelines {
-    display: flex;
-    margin: 3%;
+.articles {
+    border: none;
+    border-radius: 10px;
+}
+
+#categ {
+    background-color: rgb(243, 243, 243);
+}
+
+.nav-item {
+    font-size: 20px;
+    margin-left: 8%;
+    color: #fff;
+}
+
+.navbar-brand {
+    font-size: 28px;
 }

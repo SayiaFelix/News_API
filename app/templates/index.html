@@ -3,65 +3,109 @@
 
 {% block styles%} {{ super() }}
 <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"> {% endblock %}
+
 <!-- Content block -->
 {% block content %} .
 <div class="container">
     <div class="row">
-        <div class="col-5">
-            <h1 align="center"> Top News </h3>
+        <div class="col-sm-8">
+            <div id="categ">
+                <div class="card mt-5 news">
+                    <h1 align="center" class="fw-bold">News Categories</h1>
 
-                {% for headlines in headlines %}
-                <div class="headelines">
-                    <div class="">
-                        <img class="card" src="{{headlines.urlToImage}}" alt="Card image cap" id="img" width="500px">
+                    <hr>
+                    <!-- General News -->
+                    <div class="row">
+                        <div class="col-md-12 cat" id="general">
+                            <h1 class="fs-1 fw-bolder text-center">General News</h1>
+                            <hr>
+                        </div>
+                        {{ macro.displayNewList(general)}}
                     </div>
+                </div>
+                <div class="card mt-5 news">
+                    <!-- Technology Trendings -->
+                    <div class="row">
+                        <div class="col-md-12 cat" id="technology">
+                            <h1 class="fs-1 fw-bolder text-center">Technology News</h1>
+                            <hr>
+                        </div>
+                        {{ macro.displayNewList(technology)}}
+                    </div>
+                </div>
 
-                    <div class="content">
+                <div class="card mt-5 news">
+                    <!-- Entertainment Trendings -->
+                    <div class="row">
+                        <div class="col-md-12 cat" id="entertainment">
+                            <h1 class="fs-1 fw-bolder text-center">Entertainment News</h1>
+                            <hr>
+                        </div>
+                        {{ macro.displayNewList(entertainment)}}
+                    </div>
+                </div>
+                <div class="card mt-5 news">
+                    <!-- Sport News -->
+                    <div class="row">
+                        <div class="col-md-12 cat" id="sport">
+                            <h1 class="fs-1 fw-bolder text-center">Sport News </h1>
+                            <hr>
+                        </div>
+                        {{ macro.displayNewList(sports)}}
+                    </div>
+                </div>
+                <div class="card mt-5 news">
+                    <!-- Bussiness News -->
+                    <div class="row">
+                        <div class="col-md-12 cat" id="business">
+                            <h1 class="fs-1 fw-bolder text-center">Bussiness News </h1>
+                            <hr>
+                        </div>
+                        {{ macro.displayNewList(business)}}
+                    </div>
+                </div>
+
+                <div class="card mt-5 news">
+                    <!-- Science Trendings -->
+                    <div class="row">
+                        <div class="col-md-12 cat" id="science">
+                            <h1 class="fs-1 fw-bolder text-center">Science News</h1>
+                            <hr>
+                        </div>
+                        {{ macro.displayNewList(science)}}
+                    </div>
+                </div>
+
+                <div class="card mt-5 news">
+                    <!-- Health News -->
+                    <div class="row">
+                        <div class="col-md-12 cat" id="health">
+                            <h1 class="fs-1 fw-bolder text-center">Health News </h1>
+                            <hr>
+                        </div>
+                        {{ macro.displayNewList(health)}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-4 mt-4">
+            <h1 align="center" class="fw-bold"> Top Headline</h1>
+            <hr> {% for headlines in headlines %}
+            <div class="card" style="width: 43rem;">
+                <img src="{{headlines.urlToImage}}" class="card-img-top" alt="Card image cap" id="img" width="">
+                <div class="card-body">
+                    <p class="card-text">
                         <h5 class="card-title">{{headlines.title}}</h5>
                         <p class="card-text">{{headlines.description}}</p>
-                    </div>
-                    <!-- <button class="btn btn-success p-2"><a href="{{headlines.url}}" target="_blank">More Details</a></button>
-                    <small class="text-muted">Publish date: {{headlines.publishedAt}}</small> -->
+                    </p>
                 </div>
+                <hr>
+            </div>
+            <!-- <button class="btn btn-success p-2"><a href="{{headlines.url}}" target="_blank">More Details</a></button>
+                    <small class="text-muted">Publish date: {{headlines.publishedAt}}</small> -->
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>
-
-    <div class="col-4">
-        <!-- General News -->
-        <h3>News Headline</h3>
-        <ul>
-            {{ macro.displayNewList(general)}}
-        </ul>
-
-        <h3>Technology Trendings</h3>
-        <ul>
-            {{ macro.displayNewList(technology)}}
-        </ul>
-
-        <h3>Science News</h3>
-        <ul>
-            {{ macro.displayNewList(science)}}
-        </ul>
-
-        <h3>Entertainment News</h3>
-        <ul>
-            {{ macro.displayNewList(entertainment)}}
-        </ul>
-
-        <h3 class="mt-5">Sport News</h3>
-        <ul>
-            {{ macro.displayNewList(sports)}}
-        </ul>
-
-        <h3>Bussiness News</h3>
-        <ul>
-            {{ macro.displayNewList(business)}}
-        </ul>
     </div>
 </div>
-</div>
-
-
-
 {% endblock%}

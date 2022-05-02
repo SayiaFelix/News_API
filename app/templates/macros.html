@@ -1,17 +1,17 @@
 {% macro displayNewList(source_list) %} {% for source in source_list %}
-<div class="container">
-    <div class="row">
-        <div class="col-4">
-            <div class="card-body">
-                <h3 class="card-title"><strong>{{source.name}}</strong></h3>
-                <p>{{source.description}}</p>
-                <button class="btn btn-success btn-lg p-2"><a href="{{source.url}}" target="_blank">Get Article</a></button>
+<div class="col-md-3 mt-4" id="Categories">
+    <div class="card articles">
+        <div class="card-header">
+            <h3 class="card-title"><strong>{{source.name}}</strong></h3>
 
-            </div>
+        </div>
+
+        <div class="card-body">
+            <p class="fs-5"> {{source.description|truncate()}} </p>
+            <hr>
+            <button class="btn btn-secondary p-2"><a class="text-light fs-4" href="{{source.url}}" target="_blank">Get Articles</a></button>
         </div>
     </div>
-    <!-- <a href="/article/{{source.id}}">
-        <p class="text-capitalize text-muted">{{source.id}}</p>
-    </a> -->
 </div>
+
 {% endfor %} {% endmacro %}
